@@ -37,7 +37,10 @@
 
     <div class="row">
       <div class="col-sm-12">
-        <p th:text="${aulas}"></p>
+        <p>Lista de Aulas</p>
+        <ul>
+          <li th:each="aula : ${aulas}" th:text="${aula}"></li>
+        </ul>
       </div>
     </div>
   </main>
