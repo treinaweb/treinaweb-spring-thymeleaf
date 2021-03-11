@@ -26,7 +26,9 @@
 
     <div class="row">
       <div class="col-sm-12">
-        <table class="table">
+        <h5 th:if="${#lists.isEmpty(clientes)}">Não há clientes cadastrados no momento</h5>
+
+        <table class="table" th:unless="${#lists.isEmpty(clientes)}">
           <thead>
             <tr>
               <th scope="col">#</th>
