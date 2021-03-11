@@ -14,7 +14,9 @@
   <title>Spring Fundamentos</title>
 </head>
 <body>
-  <div th:insert="~{fragments/_navbar :: nav}"></div>
+  <!-- <div th:insert="~{fragments/_navbar :: nav}"></div> -->
+  <!-- <div th:include="~{fragments/_navbar :: nav}"></div> -->
+  <div th:replace="~{fragments/_navbar :: nav}"></div>
 
   <main class="container">
     <div class="row">

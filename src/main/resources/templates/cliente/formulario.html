@@ -13,11 +13,7 @@
   <title th:text="${cliente.id == null ? 'Spring Fundamentos - Cadastrar novo Cliente' : 'Spring Fundamentos - Editar Cliente'}"></title>
 </head>
 <body>
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">TWClientes</a>
-    </div>
-  </nav>
+  <div th:replace="~{fragments/_navbar :: nav}"></div>
 
   <main class="container">
     <div class="row">
