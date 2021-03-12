@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html th:replace="~{layout :: layout (~{::title}, ~{::main})}">
 <head>
-  <title>Spring Fundamentos - Listagem de Clientes</title>
+  <title th:text="#{listar.title}"></title>
 </head>
 <body>
   <main class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h1>Listagem de Clientes</h1>
+        <h1 th:text="#{listar.header}"></h1>
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-12">
-        <h5 th:if="${#lists.isEmpty(clientes)}">Não há clientes cadastrados no momento</h5>
+        <h5 th:if="${#lists.isEmpty(clientes)}" th:text="#{listar.tabela.vazia}"></h5>
 
         <table class="table" th:unless="${#lists.isEmpty(clientes)}">
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Data de Nascimento</th>
-              <th scope="col">Profissão</th>
-              <th scope="col">Ações</th>
+              <th scope="col" th:text="#{listar.tabela.col.nome}"></th>
+              <th scope="col" th:text="#{listar.tabela.col.dataNascimento}"></th>
+              <th scope="col" th:text="#{listar.tabela.col.profissao}"></th>
+              <th scope="col" th:text="#{listar.tabela.col.acoes}"></th>
             </tr>
           </thead>
           <tbody>
@@ -40,15 +40,15 @@
                 <a 
                   th:href="@{/cliente/{id}/editar (id=${cliente.id})}"
                   class="btn btn-warning"
+                  th:text="#{listar.tabela.acao.editar}"
                 >
-                  Editar
                 </a>
                 <a 
                   th:href="@{/cliente/{id}/excluir (id=${cliente.id})}"
                   class="btn btn-danger"
+                  th:text="#{listar.tabela.acao.excluir}"
                   onclick="return confirm('Tem certeza que deseja excluir o cliente?');"
                 >
-                  Excluir
                 </a>
               </td>
             </tr>
@@ -59,7 +59,11 @@
 
     <div class="row">
       <div class="col-sm-12">
-        <a th:href="@{/cliente/cadastrar}" class="btn btn-primary">Cadastrar novo Cliente</a>
+        <a 
+          th:href="@{/cliente/cadastrar}" 
+          class="btn btn-primary" 
+          th:text="#{listar.botao.cadastro}"
+        ></a>
       </div>
     </div>
   </main>
