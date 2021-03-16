@@ -4,9 +4,19 @@
 
     <form class="d-flex" method="GET">
       <select class="form-select me-2" name="lang">
-        <option selected disabled>Selecione o idioma</option>
-        <option value="pt">Português</option>
-        <option value="en">Inglês</option>
+        <option disabled>Selecione o idioma</option>
+        <option 
+          th:selected="${#locale.toString() == 'pt'}"
+          value="pt"
+        >
+          Português
+        </option>
+        <option 
+          th:selected="${#locale.toString() == 'en'}"
+          value="en"
+        >
+          Inglês
+        </option>
       </select>
 
       <button class="btn btn-outline-success" type="submit">Ok</button>
